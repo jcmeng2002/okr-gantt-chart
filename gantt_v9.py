@@ -41,9 +41,9 @@ tasks_raw = [
     ("了解工作内容/工作模式\n沟通习惯", "04-12", "05-10", "#FF7A45", None),
 
     # ====== 阶段3 ======
-    ("设计职能演进思考报告", "04-27", "05-17", "#00B96B",
-     "◆ AI产品经理+设计\n   演进报告(5/17)"),
-    ("AI产品经理演进思考报告", "04-27", "05-17", "#00B96B", None),
+    ("设计职能演进思考报告", "04-26", "05-17", "#00B96B",
+     "◆ 设计/AI产品经理\n   演进报告(5/17)"),
+    ("AI产品经理演进思考报告", "04-26", "05-17", "#00B96B", None),
     ("协助BP落地日常工作\n(by case交付大评估等)", "04-12", None, "#00B96B",
      "◆ 阶段2完成"),
     # AI专项: 4个独立交付节点
@@ -91,7 +91,7 @@ for i, (name, start, end, color, milestone) in enumerate(tasks):
     # ========== 里程碑标记 ==========
     if milestone == "__MILESTONES__":
         # ★ AI专项：在坐标轴上逐一标出4个月度交付点
-        ai_dates = ["05-10", "06-14", "07-12", "08-16"]
+        ai_dates = ["05-17", "06-14", "07-12", "08-09"]
         for d_str in ai_dates:
             d = parse_d(d_str)
             mx = (d - PLOT_START).days
@@ -164,8 +164,7 @@ leg.get_frame().set_alpha(0.95)
 
 # 标题
 ax.set_title(
-    'AMS HRBP实习生nelsonmeng OKR规划甘特图\n'
-    '[2026年4月12日起 · 并行推进 · 详细版 · 严格按文档时间]',
+    'AMS HRBP实习生nelsonmeng OKR规划甘特图',
     fontproperties=font_prop, fontsize=16, fontweight='bold',
     color='#333333', pad=30)
 
