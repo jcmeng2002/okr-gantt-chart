@@ -117,8 +117,9 @@ ax.set_xticklabels(week_labels, fontproperties=tencent_font, fontsize=9)
 ax.set_xlim(-3, WEEKS_TOTAL * 7 + 5)
 
 # ─── 6. Y轴：任务名（左侧显示完整） ──────────────────
-y_labels = [t[0] for t in tasks_data]  # Y轴标签
-y_positions = list(range(n_tasks))
+# 标签也要倒序，与条形的 y=n_tasks-1-i 对应
+y_labels = [t[0] for t in tasks_data]  # 数据已按结束时间倒序
+y_positions = [n_tasks - 1 - i for i in range(n_tasks)]  # 倒序Y坐标，匹配条形位置
 ax.set_yticks(y_positions)
 ax.set_yticklabels(y_labels, fontproperties=tencent_font, fontsize=11)
 ax.set_ylim(-0.7, n_tasks - 0.3)
@@ -155,7 +156,7 @@ leg.get_frame().set_linewidth(0.5)
 # ─── 9. 标题 & 样式微调 ───────────────────────────────
 ax.set_title(
     'AMS HRBP OKR 规划甘特图 V4\n'
-    '[2025年4月起 · 并行推进 · 按完成时间倒序]',
+    '[2026年4月起 · 并行推进 · 按完成时间倒序]',
     fontproperties=tencent_font, fontsize=18, fontweight='bold', 
     pad=16, color='#333333'
 )
