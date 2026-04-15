@@ -53,8 +53,9 @@ tasks_raw = [
     # Row 12: 协助BP — 无固定结束时间
     ("协助BP落地日常工作\n(by case交付大评估等)", "2026-04-12", None, "#00B96B",
      "◆ 阶段2完成"),
-    # Row 13: AI专项 — by月产出，无固定结束
-    ("AI专项产出[By月]\n(5/10·6/14·7/12·8/16)", "2026-05-11", None, "#00B96B", None),
+    # Row 13: AI专项 — 从4/12至结束，by月交付节点
+    ("AI专项\n(by月产出)", "2026-04-12", None, "#00B96B",
+     "◆5/10·6/14·7/12·8/16"),
 ]
 
 # 解析 + 按**结束日期升序**排列（先完成的前面 = index小 = 图上方）
@@ -89,10 +90,8 @@ for i, (name, start, end, color, milestone) in enumerate(tasks):
     left = (start - plot_start).days
 
     if end is not None:
-        width = (end - start).days + 1
-        # 截断到显示范围之外一点，让条形能延伸出去
-        if left + width > total_display_days + 2:
-            width = total_display_days + 6 - left  # 延伸到"及以后"区域
+        # 精确到结束日期，不延伸
+        width = (end - start).days  # 精确天数，不加+1
         bar_color = color
     else:
         # 无固定结束 → 延伸到 X 轴右侧尽头
